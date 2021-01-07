@@ -1,0 +1,17 @@
+html, body {font-family:Arial; font-size:15}
+header {background-color: #D7B373;background-image:url('question.png');background-size:80px 80px; background-repeat:no-repeat; 
+height: 100px;}
+h1 {font-family:Verdana; color: #4F3406; letter-spacing:-1px; margin-bottom:0px; padding-left: 90px; padding-bottom: 0px}
+h2 {color: #FFE3B3; text-shadow: 2px 2px 8px #fff6e6; text-decoration: overline; padding-left:5px;padding-top:50px;box-sizing:border-box; height: 400px; background-image:url('shops.jpg');
+background-repeat:no-repeat; background-size: 1300px 600px;}
+h4{margin-top:0px;padding-left:90px; padding-top: 0px;}
+main{background-color:#E9EBEA}
+footer{background-color:#6F000B; font-size:x-small; color:white; text-align:center}
+.center{text-align:center}
+header,nav,main,footer{padding:5px}
+html, nav{background-color:#E9EBEA;}
+nav a{color: #4F3406; text-decoration:none; font-size:14px; font-weight: bold; padding: 3px 10px 3px 10px;}
+nav a:hover{color:#D7B373; text-decoration:underline; background-color:#6F000B;}
+ul{list-style-image:url('roundbrown.gif'); padding:20px 20px; margin-bottom:10px;}
+#contact{width:35%; float:right; background:linear-gradient(red, yellow); border-style:solid;
+border-radius:10px;border-padding:10px; box-shadow: 5px 5px 8px}

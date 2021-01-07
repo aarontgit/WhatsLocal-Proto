@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <title>About WhatsLocal</title>
+	<link rel="stylesheet" type="text/css"  href="base.css">
+	<link rel="stylesheet" type="text/css"  href="styles.css">
+	<link rel="stylesheet" type="text/css"  href="layout_style.css">	
+	<link rel="stylesheet" type="text/css"  href="navicon.css">
+<script>
+
+window.onload = function(e){
+
+var parsedUrl = new URL(window.location.href);
+var pname = parsedUrl.searchParams.get("name");
+if(pname.length == 0)
+	window.location.href = "contact.html";
+var subject = parsedUrl.searchParams.get("subject");
+var mail = parsedUrl.searchParams.get("email");
+
+document.getElementById("pname").innerHTML = pname;
+document.getElementById("subject").innerHTML = subject;
+document.getElementById("mail").innerHTML=mail;
+
+}
+
+</script>
+   </head>
+   <body>
+	<div id="layout">
+      <header>
+        <h1>
+         WhatsLocal.com
+        </h1>
+        <h4>
+        There could be a hidden gem right around the corner...</h4>
+      </header>
+        
+	 <nav>
+	<a id="navicon" href="#"><img src="navicon.png" width="32px" /></a>
+          <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+	  <li><a href="service.html">Deals</a></li>
+	  <li><a href="cart.html">Shopping Cart</a></li>
+          </ul>
+         </nav>
+        <section><h2>
+        Thank You
+        </h2></section>
+      
+     
+      <main>
+<p id="pname"></p>
+<p>We have received your request for additional information on:</p>
+<ul><li id="subject"></li></ul>
+<p>We will respond to <span id="mail"></span> within two business days.</p>
+<p>Thank you for your interest!</p>
+      </main>
+	
+      <footer>
+         Copyright 2020 by Aaron Tiktin
+      </footer>
+   </body>
+	</div>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <title>What's Local? - Find local businesses near you</title>
+	
+	<link rel="stylesheet" type="text/css"  href="base.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="layout_style.css">
+	<link rel="stylesheet" type="text/css"  href="navicon.css">
+	<script defer src = "arrays.js"></script>
+	<script defer src = "cart.js"></script>
+
+<style>
+
+div#cart table {
+
+font-size: 1.4em;
+border-collapse: collapse;
+line-height: 1.3em;
+
+}
+
+div#cart table tr:nth-of-type(even){ background-color: LightGrey;}
+
+div#cart table tr td:nth-of-type(2), div#cart table tr td:nth-of-type(3), div#cart table tr td:nth-of-type(4){
+  text-align:right;
+}
+
+div#cart table th{
+
+background-color:#4F3406;
+color: rgb(231,231,231);
+padding: 10px;
+
+}
+
+td{ padding:10px;}
+
+div#cart table tfoot tr:first-of-type {
+  border-top: 6px double #4F3406;
+}
+
+div#cart table tfoot tr td {
+  background-color: white;
+  text-align:right;
+}
+
+
+</style>
+   </head>
+   <body>
+	<div id="layout">
+      <header>
+        <h1>
+         WhatsLocal.com
+        </h1>
+        <h4>
+        There could be a hidden gem right around the corner...
+	</h4>
+      </header>
+        
+	 <nav>
+	<a id="navicon" href="#"><img src="navicon.png" width="32px" /></a>
+          <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+	  <li><a href="service.html">Deals</a></li>
+	  <li><a href="cart.html">Shopping Cart</a></li>
+          </ul>
+         </nav>
+      <section>  <h2>
+        Find local businesses near you!
+        </h2> </section>
+      
+     
+      <main>
+
+	<h3>Shopping Cart</h3>
+	<div id = 'cart'></div>
+	<button type = "button">Proceed to Checkout</button>
+	<p id="sdate"></p>
+          
+          
+      </main>
+      <footer>
+         Copyright 2020 by Aaron Tiktin
+      </footer>
+	</div>
+   </body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <title>Contact us at WhatsLocal</title>
+	<link rel="stylesheet" type="text/css"  href="base.css">
+	<link rel="stylesheet" type="text/css"  href="styles.css">
+	<link rel="stylesheet" type="text/css"  href="layout_style.css">
+	<link rel="stylesheet" type="text/css"  href="style_table_forms.css">
+	<link rel="stylesheet" type="text/css"  href="navicon.css">
+
+	<style>
+
+input:invalid, select:invalid, textarea:invalid{
+border-color:#900;
+filter: drop-shadow(5px 5px 3px #c99);
+}
+
+.error{
+border: 4px double #900;
+background-color: #FDD;
+padding:5px;
+width:400px;
+}
+	</style>
+<script defer>
+
+var pname, subject, email, rb, topic, subject, question;
+
+window.onload = function(){
+
+subject=document.getElementById('subject');
+pname=document.getElementById('name');
+email=document.getElementById('email');
+topic=document.getElementById('topic');
+subject=document.getElementById('subject');
+question=document.getElementById('question');
+rb=document.getElementsByName('mList');
+
+email.addEventListener("input", validateEmail);
+pname.addEventListener("input", function(e){ validateText(this);});
+subject.addEventListener("input", function(e){ validateText(this);});
+question.addEventListener("input", function(e){ validateText(this);});
+topic.addEventListener("change", validateTopic);
+rb.forEach(function(el) { el.addEventListener("click", validateMailingList)});
+
+var sub = document.querySelector("input[type='submit']");
+sub.addEventListener("click",validateAll);
+
+}
+
+function validateAll(e){
+var message = "";
+message += validateText(pname);
+message += validateEmail(e);
+message += validateTopic(e);
+message += validateText(subject);
+message += validateText(question);
+message += validateMailingList(e);
+
+var error = document.getElementById("error");
+
+if (message.length > 0) {
+
+message = message.replace(/!/g, ".<br>");
+error.innerHTML = message;
+error.className = "error";
+e.preventDefault();
+
+} else {
+error.innerHTML = "";
+error.className= "";
+}
+}
+
+function validateText(elem){
+
+var message="";
+var txt = elem.name;
+if (elem.value.length <= 0){
+
+message = "You must enter a " + txt + "!";
+
+}
+else if (elem.validity.tooShort){
+
+message = "Your " + txt +" is too short!";
+
+}
+elem.setCustomValidity(message);
+elem.title=message;
+return message;
+}
+
+function validateEmail(e){
+	
+    if (email.value.length <= 0) {
+      email.setCustomValidity("You do need to provide an email!"); }
+    else if (email.validity.typeMismatch) {
+      email.setCustomValidity("This doesn't seem to be an email.");  }
+    else if (email.validity.patternMismatch) {
+      email.setCustomValidity("You may have a typo in your email!");  } 
+    else {
+      email.setCustomValidity("");
+    }
+  email.title = email.validationMessage;
+  return email.validationMessage;
+}
+
+function validateTopic(e){
+
+var message = "";
+if(topic.selectedIndex==0){
+
+message="You must select a topic!";
+
+}
+topic.setCustomValidity(message);
+topic.title=message;
+return message;
+}
+
+function validateMailingList(e){
+
+var rchecked=document.querySelector("input[name='mList']:checked");
+var message="";
+
+if (rchecked==null) {
+message="Please select an option!";
+
+}
+
+rb.forEach(function(elem) {
+elem.title=message;
+elem.setCustomValidity(message);
+
+});
+return message;
+
+}
+
+
+</script>
+
+
+   </head>
+   <body>
+	<div id="layout">
+      <header>
+        <h1>
+         WhatsLocal.com
+        </h1>
+        <h4>
+        There could be a hidden gem right around the corner...</h4>
+      </header>
+        
+	 <nav>
+	<a id="navicon" href="#"><img src="navicon.png" width="32px" /></a>
+          <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+	  <li><a href="service.html">Deals</a></li>
+	  <li><a href="cart.html">Shopping Cart</a></li>
+          </ul>
+         </nav>
+        <section><h2>
+        Contact us
+        </h2></section>
+
+
+	
+
+     
+      <main>
+
+<form action="thankyou.html" method="get" name="contactForm" id="contactForm">
+<div id="error"> </div>
+<p>*indicates a required field</p>
+<fieldset id="contactFields">
+  <legend>Contact Information</legend>
+    <div class="formRow">
+	<label for="name">Name:<span>*</span></label>
+	<input type="text" id="name" name="name" minlength="2">
+    </div>
+    <div class="formRow">
+	<label for="email">Email Address:<span>*</span></label>
+	<input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    </div>
+    <div class="formRow">
+	<label for="phone">Phone:</label>	
+	<input type="tel" id="phone" name="phone" pattern="^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$">
+    </div>
+</fieldset>
+
+<fieldset id="request">
+  <legend>Information Request</legend>
+    <div class="formRow">
+	<label for="topic">Request Topic:<span>*</span></label>
+	<select name="topic" id="topic">
+	   <option value="">Select an option</option>
+	   <option value="purchase">Purchase Information</option>
+	   <option value="refund">Refund Information</option>
+	   <option value="redeem">Redeem Voucher Information</option>
+	   <option value="website">Website Information</option>
+	   <option value="careers">Career Information</option>
+	</select> 
+    </div>
+    <div class="formRow">
+	<label for="subject">Subject:<span>*</span></label>
+	<input type="text" id="subject" name="subject" minlength="5">
+    </div>
+    
+	<label for="question" class="blockLabel">Ask us your question:<span>*</span></label>
+	<textarea id="question" name="question" rows="5" cols="55" minlength="15"></textarea>
+<fieldset id="mailing list">
+   <legend>Do you want to be on our mailing list?</legend>
+	<label for="mYes">Yes</label>
+	<input type="radio" id="mYes" value="yes" name="mList">
+	<label for="mNo">No</label>
+	<input type="radio" id="mNo" value="no" name="mList">
+</fieldset>
+	<input type="submit" value="Submit Question">
+	<input type="reset" value="Cancel">
+</fieldset>
+	
+	
+	
+</form>                 
+      </main>
+
+
+
+      <footer>
+         Copyright 2020 by Aaron Tiktin
+      </footer>
+</div>
+</body>
+	
+</html>

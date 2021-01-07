@@ -1,0 +1,28 @@
+a#navicon { display: none; }
+@media screen and (max-width:480px){
+
+#navicon {display:block;}
+nav ul{display:none;}
+nav ul li{display:block;}
+a#navicon:hover+ul, nav ul:hover {
+  display:block;
+  float: none;
+} 
+section{
+background:none;
+padding:0px;
+height:auto;
+}
+section h2{
+text-shadow:none;
+color:black;
+}
+#layout{
+grid-template-areas:
+	'head'
+	'nav'
+	'section'
+	'main'
+	'footer';
+}
+}
